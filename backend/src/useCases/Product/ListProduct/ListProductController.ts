@@ -4,7 +4,7 @@ import { ListProductCase } from "./ListProduct";
 export class ListProductController {
   constructor (private listProductCase: ListProductCase) {};
 
-  async handle (request:  Request, response: Response): Promise <Response> {
+  async handle (request: Request, response: Response): Promise <Response> {
     try {
       const products = await this.listProductCase.execute ();
       

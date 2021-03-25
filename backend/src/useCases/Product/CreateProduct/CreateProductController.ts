@@ -4,7 +4,7 @@ import { CreateProductCase } from "./CreateProduct";
 export class CreateProductController {
   constructor (private createProductCase: CreateProductCase) {};
 
-  async handle (request:  Request, response: Response): Promise <Response> {
+  async handle (request: Request, response: Response): Promise <Response> {
     const { name, stock, price } = request.body;
 
     try {
