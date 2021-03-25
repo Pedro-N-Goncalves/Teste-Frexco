@@ -1,7 +1,6 @@
-import { format } from "date-fns";
-import { uuid } from "uuidv4";
+import { formatISO } from "date-fns";
 import { IProductDTO } from "../useCases/Product/ProductDTO";
-
+import { v4 as uuidv4 } from 'uuid';
 
 export class Product {
   public readonly id!: string;
@@ -14,8 +13,12 @@ export class Product {
   constructor (props: IProductDTO) {
     Object.assign (this, props);
 
-    this.id = uuid ();
-    this.createdAt = format (new Date (), 'yyyy-MM-dd hh:mm:ss');
-    this.updatedAt = format (new Date (), 'yyyy-MM-dd hh:mm:ss');
+    if (!this.id)
+      this.id = uuidv4 ();
+
+    if (!this.createdAt)
+      this.createdAt = formatISO (new Date ());
+
+    this.updatedAt = formatISO (new Date ());
   }
 }

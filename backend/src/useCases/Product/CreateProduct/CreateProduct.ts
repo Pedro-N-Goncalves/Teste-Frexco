@@ -6,10 +6,10 @@ export class CreateProductCase {
   constructor (private productRepository: IProductRepository) {};
 
   async execute (data: IProductDTO) {
-    const productExists = this.productRepository.findByName (data.name);
+    const productExists = await this.productRepository.findByName (data.name);
 
     if (productExists) {
-      throw new Error ('Este produto já está cadastrado');
+      throw new Error ('Este produto já está cadastrado!');
     }
 
     const product = new Product (data);
