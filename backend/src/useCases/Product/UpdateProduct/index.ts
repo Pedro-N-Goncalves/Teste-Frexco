@@ -1,5 +1,5 @@
 import { PostgreProductRepository } from "../../../repositories/implementations/PostgreProductRepository";
-import { UpdateProductCase } from "./UpdateProduct";
+import { UpdateProductCase } from "./UpdateProductCase";
 import { UpdateProductController } from "./UpdateProductController";
 
 const postgreProductRepository = new PostgreProductRepository ();

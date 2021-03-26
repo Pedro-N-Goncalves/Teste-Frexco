@@ -31,6 +31,20 @@ export class PostgreProductRepository implements IProductRepository {
     
     return product;
   };
+
+  async findByID (id: string): Promise <Product> {
+    const postgreDB = new pg.Client (db);
+    await postgreDB.connect ();
+    
+    const listQuery = `SELECT * FROM products WHERE id=$1`;
+    
+    const result = await postgreDB.query (listQuery, [id]);
+    const product: Product = result.rows [0];
+    
+    await postgreDB.end ();
+    
+    return product;
+  };
   
   async insert (product: Product): Promise <void> {
     const postgreDB = new pg.Client (db);

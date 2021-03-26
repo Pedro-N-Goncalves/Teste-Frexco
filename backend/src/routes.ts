@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { createProductController } from "./useCases/Product/CreateProduct";
 import { deleteProductController } from "./useCases/Product/DeleteProduct";
+import { getProductController } from "./useCases/Product/GetProduct";
 import { listProductController } from "./useCases/Product/ListProduct";
 import { updateProductController } from "./useCases/Product/UpdateProduct";
 
@@ -16,6 +17,10 @@ router.post ('/products', (request, response) => {
 
 router.get ('/products', (request, response) => {
   listProductController.handle (request, response);
+});
+
+router.get ('/products/:id', (request, response) => {
+  getProductController.handle (request, response);
 });
 
 router.put ('/products/:id', (request, response) => {

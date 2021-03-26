@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreateProductCase } from "./CreateProduct";
+import { CreateProductCase } from "./CreateProductCase";
 
 export class CreateProductController {
   constructor (private createProductCase: CreateProductCase) {};

@@ -1,6 +1,6 @@
 import { Product } from "../../../entities/product";
 import { IProductRepository } from "../../../repositories/ProductRepository";
-import { IProductDTO } from "../ProductDTO";
+import { IProductDTO } from "../../../DTOs/ProductDTO";
 
 export class CreateProductCase {
   constructor (private productRepository: IProductRepository) {};

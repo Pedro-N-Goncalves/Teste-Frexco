@@ -1,5 +1,5 @@
 import { formatISO } from "date-fns";
-import { IProductDTO } from "../useCases/Product/ProductDTO";
+import { IProductDTO } from "../DTOs/ProductDTO";
 import { v4 as uuidv4 } from 'uuid';
 
 export class Product {

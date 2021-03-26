@@ -1,5 +1,5 @@
 import { PostgreProductRepository } from "../../../repositories/implementations/PostgreProductRepository";
-import { DeleteProductCase } from "./DeleteProduct";
+import { DeleteProductCase } from "./DeleteProductCase";
 import { DeleteProductController } from "./DeleteProductController";
 
 const postgreProductRepository = new PostgreProductRepository ();

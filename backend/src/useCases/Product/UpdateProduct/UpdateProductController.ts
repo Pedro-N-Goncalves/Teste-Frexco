@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { UpdateProductCase } from "./UpdateProduct";
+import { UpdateProductCase } from "./UpdateProductCase";
 
 export class UpdateProductController {
   constructor (private updateProductCase: UpdateProductCase) {};
