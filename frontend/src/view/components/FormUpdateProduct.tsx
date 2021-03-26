@@ -1,28 +1,44 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { updateProductController } from '../../useCases/UpdateProduct';
+import { Product } from '../../entities/Product';
 import { Button, TextField } from '@material-ui/core';
 import { PriceInput } from './PriceInput';
-import { createProductController } from '../../useCases/CreateProduct';
 import { Form } from '../styles';
 
-type Props = RouteComponentProps;
+type Props = {
+  routeProps: RouteComponentProps;
+  data: Product | undefined;
+}
 
-const FormCreateProduct: React.FC<Props> = ({ history }) => {
+const FormEditProduct: React.FC<Props> = ({ routeProps, data }) => {
+  const [ id, setID ] = useState <string> ('');
   const [ name, setName ] = useState <string> ('');
   const [ stock, setStock ] = useState <string> ('');
   const [ price, setPrice ] = useState <string> ('');
+  
+  const fillForm = () => {
+    if (data) {
+      setID (data.id);
+      setName (data.name);
+      setStock (data.stock.toString ());
+      setPrice (data.price.toString ());
+    }
+  }
 
-  const handleCreate = async (e: React.FormEvent <HTMLFormElement>): Promise<void> => {
+  useEffect (fillForm, [data]);
+
+  const handleUpdate = async (e: React.FormEvent <HTMLFormElement>): Promise<void> => {
     e.preventDefault ();
-    await createProductController.handle ({
-      name, stock, price
+    await updateProductController.handle ({
+      id, name, stock, price
     });
-    history.push ('/');
+    routeProps.history.push ('/');
   }
 
   return (
-    <Form onSubmit={e => handleCreate (e)}>
-      <TextField 
+    <Form onSubmit={e => handleUpdate (e)}>
+      <TextField
         id='name'
         label='Nome'
         variant='outlined'
@@ -30,7 +46,7 @@ const FormCreateProduct: React.FC<Props> = ({ history }) => {
         value={name}
         onChange={e => setName (e.target.value)}
       />
-      <TextField 
+      <TextField
         id='stock'
         label='Quantidade'
         variant='outlined'
@@ -56,10 +72,10 @@ const FormCreateProduct: React.FC<Props> = ({ history }) => {
         size='large'
         color='primary'
       >
-        Cadastrar
+        Salvar
       </Button>
     </Form>
   );
 }
 
-export { FormCreateProduct } ;
+export { FormEditProduct };

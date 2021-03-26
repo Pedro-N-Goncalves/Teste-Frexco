@@ -11,16 +11,19 @@ export class AxiosProductRepository implements IProductRepository {
     return products;
   };
 
-  //async findByName (name: string): Promise <Product> {
-    
-  //};
+  async findByID (id: string): Promise <Product> {
+    const response = await api.get (`/products/${id}`);
+    const product: Product = response.data;
+
+    return product;
+  };
   
   async insert (product: Product): Promise <void> {
-
+    await api.post ('/products', product);
   };
 
   async update (product: Product): Promise <void> {
-
+    await api.put (`/products/${product.id}`, product);
   };
 
   async delete (id: string): Promise <void> {

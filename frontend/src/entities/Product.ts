@@ -1,4 +1,4 @@
-import { IProductDTO } from "../useCases/ProductDTO";
+import { IProductDTO } from "../DTOs/ProductDTO";
 
 export class Product {
   public readonly id!: string;

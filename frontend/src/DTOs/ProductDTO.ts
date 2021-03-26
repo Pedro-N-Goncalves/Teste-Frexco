@@ -1,8 +1,8 @@
 export interface IProductDTO {
   id?: string;
   name: string;
-  stock: number;
-  price: number;
+  stock: string;
+  price: string;
   createdAt?: string,
   updatedAt?: string,
 }
