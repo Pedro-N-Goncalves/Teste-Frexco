@@ -1,0 +1,23 @@
+{
+  "name": "Teste-Frexco",
+  "version": "1.0.0",
+  "description": "Projeto de teste - Frexco",
+  "main": "index.js",
+  "scripts": {
+    "docker:build": "docker-compose -p {name} build",
+    "docker:down": "docker-compose -p {name} down",
+    "docker:up": "docker-compose -p {name} up",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Pedro-N-Goncalves/Teste-Frexco.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Pedro-N-Goncalves/Teste-Frexco/issues"
+  },
+  "homepage": "https://github.com/Pedro-N-Goncalves/Teste-Frexco#readme"
+}
